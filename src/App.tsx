@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+   return (
+      <section className="App">
+         <section className="container">
+            <section className="reservation-container">
+               <div>
+                  <h5 className="reservation-header">Reservations</h5>
+                  <section className="reservation-cards-container">
+                     <div className="reservation-card-container">
+                        Simon Riley
+                     </div>
+                  </section>
+               </div>
+               <div className="reservation-input-container">
+                  <input />
+                  <button>Add</button>
+               </div>
+            </section>
+            <section className="customer-food-container">
+               <div className="customer-food-card-container">
+                  <p>Emma Watson</p>
+                  <section className="customer-foods-container">
+                     <div className="customer-food-container"></div>
+                     <div className="customer-food-input-container">
+                        <input />
+                        <button>Add</button>
+                     </div>
+                  </section>
+               </div>
+            </section>
+         </section>
+      </section>
+   );
+};
 
 export default App;
