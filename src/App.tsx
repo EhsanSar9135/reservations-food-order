@@ -24,14 +24,21 @@ const App = () => {
                <div>
                   <h5 className="reservation-header">Reservations</h5>
                   <section className="reservation-cards-container">
-                     {reservations.map((name) => (
-                        <ReservationCard name={name} />
+                     {reservations.map((name, index) => (
+                        <ReservationCard
+                           key={index}
+                           name={name}
+                           index={index}
+                        />
                      ))}
                   </section>
                </div>
                <div className="reservation-input-container">
-                  <input />
-                  <button>Add</button>
+                  <input
+                     value={reservationNameInput}
+                     onChange={changeReservationHandler}
+                  />
+                  <button onClick={addReservationHandler}>Add</button>
                </div>
             </section>
             <section className="customer-food-container">
@@ -40,11 +47,8 @@ const App = () => {
                   <section className="customer-foods-container">
                      <div className="customer-food-container"></div>
                      <div className="customer-food-input-container">
-                        <input
-                           value={reservationNameInput}
-                           onChange={changeReservationHandler}
-                        />
-                        <button onClick={addReservationHandler}>Add</button>
+                        <input />
+                        <button>Add</button>
                      </div>
                   </section>
                </div>
