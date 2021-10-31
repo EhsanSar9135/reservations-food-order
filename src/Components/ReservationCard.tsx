@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../Redux/App/hooks';
 import { removeReservation } from '../Redux/Features/reservationSlice';
 
 export interface ReservationsCardType {
@@ -8,7 +8,7 @@ export interface ReservationsCardType {
 }
 
 const ReservationCard: FC<ReservationsCardType> = ({ name, index }) => {
-   const dispatch = useDispatch();
+   const dispatch = useAppDispatch();
    const removeReservationHandler = () => {
       dispatch(removeReservation(index));
    };

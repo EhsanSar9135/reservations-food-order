@@ -1,14 +1,20 @@
 import { ChangeEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import './App.css';
+import CustomerCard from './Components/CustomerCard';
 import ReservationCard from './Components/ReservationCard';
-import { useAppSelector } from './Redux/App/hooks';
+import { useAppDispatch, useAppSelector } from './Redux/App/hooks';
 import { addReservation } from './Redux/Features/reservationSlice';
 
 const App = () => {
+   // UseStates
    const [reservationNameInput, setReservationNameInput] = useState('');
-   const reservations = useAppSelector((state) => state.reservation.value);
-   const dispatch = useDispatch();
+
+   // Redux Hooks
+   const reservations = useAppSelector((state) => state.reservations.value);
+   const customers = useAppSelector((state) => state.customers.value);
+   const dispatch = useAppDispatch();
+
+   // Event Handlers
    const changeReservationHandler = (event: ChangeEvent<HTMLInputElement>) => {
       setReservationNameInput(event.target.value);
    };
@@ -17,6 +23,7 @@ const App = () => {
       dispatch(addReservation(reservationNameInput));
       setReservationNameInput('');
    };
+
    return (
       <section className="App">
          <section className="container">
@@ -42,16 +49,9 @@ const App = () => {
                </div>
             </section>
             <section className="customer-food-container">
-               <div className="customer-food-card-container">
-                  <p>Emma Watson</p>
-                  <section className="customer-foods-container">
-                     <div className="customer-food-container"></div>
-                     <div className="customer-food-input-container">
-                        <input />
-                        <button>Add</button>
-                     </div>
-                  </section>
-               </div>
+               {customers.map((customer) => (
+                  <CustomerCard />
+               ))}
             </section>
          </section>
       </section>
