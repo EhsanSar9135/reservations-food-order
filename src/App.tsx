@@ -49,8 +49,8 @@ const App = () => {
                </div>
             </section>
             <section className="customer-food-container">
-               {customers.map((customer) => (
-                  <CustomerCard />
+               {customers.map(({ id, name, food }) => (
+                  <CustomerCard key={id} id={id} name={name} food={food} />
                ))}
             </section>
          </section>
